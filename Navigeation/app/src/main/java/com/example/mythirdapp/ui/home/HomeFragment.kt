@@ -7,14 +7,17 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import com.example.mythirdapp.AppViewModel
 import com.example.mythirdapp.R
 
 class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
+    val appViewModel: AppViewModel by activityViewModels()
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -30,6 +33,7 @@ class HomeFragment : Fragment() {
         })
         val btn : Button = root.findViewById(R.id.button_home)
         btn.setOnClickListener { view ->
+            this.appViewModel.data.value = "This is HomeFragment-Data!!!"
             view.findNavController().navigate(
                 R.id.action_navigation_home_to_navigation_dashboard
             )
