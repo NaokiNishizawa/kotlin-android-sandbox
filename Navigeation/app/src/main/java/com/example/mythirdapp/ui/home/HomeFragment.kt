@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -31,11 +32,21 @@ class HomeFragment : Fragment() {
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
-        val btn : Button = root.findViewById(R.id.button_home)
+        val btn : Button = root.findViewById(R.id.button_go_dashboard)
         btn.setOnClickListener { view ->
             this.appViewModel.data.value = "This is HomeFragment-Data!!!"
             view.findNavController().navigate(
                 R.id.action_navigation_home_to_navigation_dashboard
+            )
+        }
+
+        val btn2 : Button = root.findViewById(R.id.button_go_notification)
+        btn2.setOnClickListener { view ->
+            // Argment Linkを使用した値の受け渡し方法　設定処理
+            var bundle = bundleOf("msg" to "from Home with Love!")
+            view.findNavController().navigate(
+                R.id.action_navigation_home_to_navigation_notifications,
+                bundle
             )
         }
         return root

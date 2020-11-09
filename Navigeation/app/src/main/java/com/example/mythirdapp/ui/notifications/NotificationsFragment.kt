@@ -26,6 +26,10 @@ class NotificationsFragment : Fragment() {
         notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+
+        // Argment Linkを使用した値の受け渡し方法　取得方法
+        notificationsViewModel.text.value = arguments?.get("msg") as? String
+
         return root
     }
 }

@@ -14,8 +14,13 @@
             android:id="@+id/action_navigation_home_to_navigation_dashboard"
             app:destination="@id/navigation_dashboard" />
         <action
-            android:id="@+id/action_navigation_home_to_navigation_notifications2"
-            app:destination="@id/navigation_notifications" />
+            android:id="@+id/action_navigation_home_to_navigation_notifications"
+            app:destination="@id/navigation_notifications" >
+            <argument
+                android:name="msg"
+                app:argType="string"
+                android:defaultValue="sample message." />
+        </action>
     </fragment>
 
     <fragment

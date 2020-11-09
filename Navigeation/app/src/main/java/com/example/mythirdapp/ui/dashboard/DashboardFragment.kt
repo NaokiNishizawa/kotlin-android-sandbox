@@ -32,7 +32,7 @@ class DashboardFragment : Fragment() {
         })
         dashboardViewModel.text.value = "data:" + appViewModel.data.value
         Toast.makeText(this.context, "data:" + appViewModel.data.value, Toast.LENGTH_LONG).show()
-        
+
         return root
     }
 }
